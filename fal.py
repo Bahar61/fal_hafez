@@ -1,17 +1,25 @@
-
-
 import requests
 import random
 from pprint import pformat
-from flask import Flask, render_template, request, flash
+from flask import Flask, render_template, request, jsonify
+from flask_debugtoolbar import DebugToolbarExtension
 import requests
 import json
 from bs4 import BeautifulSoup
 import re
+import os
 
 app = Flask(__name__)
+app.secret_key = os.environ.get('MySecretServerKey')
 
 @app.route('/')
+def index():
+    """Homepage"""
+
+    return render_template("fal.html")
+
+
+@app.route('/poem')
 def fale_hafez():
     """Return random Hafez poem"""
 
@@ -46,15 +54,27 @@ def fale_hafez():
     rm_english_ghazal = re.compile('[\n\t\r\xa0]+').split(english_ghazal)
     rm_farsi_ghazal = re.compile('[\n\t\r\xa0]+').split(farsi_ghazal)
 
+    en_beit = ''
     for beit in rm_english_ghazal:
         e_beit = beit.strip()
         if len(e_beit) > 0: 
-            print(e_beit) 
+            en_beit += f'<br>{e_beit}' 
 
+    fa_beit = ''
     for beit in rm_farsi_ghazal:
         f_beit = beit.strip()
         if len(f_beit) > 0:
-            print(f_beit)  
-        
+            fa_beit += f'<br>{f_beit}'  
     
-fale_hafez()
+    return render_template("poem.html", 
+                            e_beit=en_beit, 
+                            f_beit=fa_beit,
+                            )
+
+
+if __name__ == '__main__':
+    # set debug=True here, to invoke the DebugToolbarExtension 
+    app.debug = True
+    app.config['SECRET_KEY'] = "<MySecretServerKey>"
+    DebugToolbarExtension(app)        
+    app.run(port=5000, host='0.0.0.0')
