@@ -1,0 +1,38 @@
+body {
+    border: 2px solid white;
+    padding: 35px;
+    background-image: url(image.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    font-size: 20px;
+}
+
+div {
+    background-color: rgba(0,0,0,0.8);  
+    padding: 2rem;
+    text-align: center;
+}
+
+table, tr, td, p, #main_page {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+td {
+    padding-left: 2rem; 
+}
+input {
+    width: 10rem;
+    border: 2px solid white;
+    font-size: 2rem;
+}
+#main_page {
+    height: 30rem;
+}
+
+footer {
+    background-color: rgba(0,0,0,0.8);
+}
