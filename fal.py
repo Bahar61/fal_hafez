@@ -71,10 +71,15 @@ def fale_hafez():
                             f_beit=fa_beit,
                             )
 
+@app.route('/about')
+def about():
+    """Homepage."""
+
+    return render_template('about.html')
 
 if __name__ == '__main__':
     # set debug=True here, to invoke the DebugToolbarExtension 
-    app.debug = True
+    app.debug = False
     app.config['SECRET_KEY'] = "<MySecretServerKey>"
     DebugToolbarExtension(app)        
-    app.run(port=5000, host='0.0.0.0')
+    app.run(port=5001, host='0.0.0.0')

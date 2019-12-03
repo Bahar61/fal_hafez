@@ -36,3 +36,15 @@ input {
 footer {
     background-color: rgba(0,0,0,0.8);
 }
+#home, .about {
+    color: white;
+    width: 8rem;
+    font-size: 2rem;
+    text-align: center;
+    display: flex;
+    align-items: left;
+    justify-content: left;
+}
+.about_text {
+    text-align: left;
+}
