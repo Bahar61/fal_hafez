@@ -8,6 +8,13 @@ body {
     font-size: 20px;
 }
 
+@media only screen and (max-width:500px) {
+  /* For mobile phones: */
+  .menu, .main, .right {
+    width: 100%;
+  }
+}
+
 div {
     background-color: rgba(0,0,0,0.8);  
     padding: 2rem;
