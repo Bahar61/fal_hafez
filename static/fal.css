@@ -8,50 +8,16 @@ body {
     font-size: 20px;
 }
 
-@media only screen and (max-width:500px) {
-  /* For mobile phones: */
-  .menu, .main, .right {
-    width: 100%;
-  }
-}
-
-div {
+#bg-shade {
     background-color: rgba(0,0,0,0.8);  
-    padding: 2rem;
-    text-align: center;
 }
 
-table, tr, td, p, #main_page {
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center
-}
-
-td {
-    padding-left: 2rem; 
-}
 input {
     width: 10rem;
     border: 2px solid white;
     font-size: 2rem;
 }
-#main_page {
-    height: 30rem;
-}
 
 footer {
     background-color: rgba(0,0,0,0.8);
-}
-#home, .about {
-    color: white;
-    width: 8rem;
-    font-size: 2rem;
-    text-align: center;
-    display: flex;
-    align-items: left;
-    justify-content: left;
-}
-.about_text {
-    text-align: left;
 }

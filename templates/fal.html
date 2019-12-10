@@ -1,21 +1,20 @@
-<!DOCTYPE html>
-<html>
-<head>
-        <link rel="stylesheet" href="static/fal.css">
-</head>
-<body>
-    <div>
-        <a class="about" href="/about">About</a>
-    </div>
+{% extends 'base.html' %}
+
+{% block title %}Homepage{% endblock %}
+
+{% block content %}
     <div id="main_page">
         <form id="myBtn" method="get" action="/poem">
-        <h1>Ask Hafez</h1>
-        <input type="submit" value="Fal" id="myBtn">
+        <button type="submit" class="btn btn-primary btn-lg">Ask Hafez</button>
     </div>
-    <footer>
-        Source: www.hafizonlove.com 
-        <br>
-        Photo by Mario Cruz on Unsplash
-    </footer>
-</body>
-</html>
+    <div class="card-footer bg-transparent border-light text-muted">
+        <div class="row justify-content-center">
+            <div class="col-6">
+                Source: www.hafizonlove.com            
+            </div>
+            <div class="col-5 text-right">
+                Photo: Mario Cruz on Unsplash
+            </div>
+        </div>      
+    </div>
+{% endblock %}
