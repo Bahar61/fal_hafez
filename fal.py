@@ -1,13 +1,18 @@
 import requests
 import random
 from pprint import pformat
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, redirect
 from flask_debugtoolbar import DebugToolbarExtension
 import requests
 import json
 from bs4 import BeautifulSoup
 import re
 import os
+import logging
+
+#setup basic config for logging
+logging.basicConfig(filename='test.log', level=logging.INFO, 
+    format='[%(asctime)s] [%(levelname)s] %(message)s')
 
 app = Flask(__name__)
 app.secret_key = os.environ.get('MySecretServerKey')
@@ -16,7 +21,9 @@ app.secret_key = os.environ.get('MySecretServerKey')
 def index():
     """Homepage"""
 
+    logging.info('Homepage served.')
     return render_template("fal.html")
+
 
 
 @app.route('/poem')
@@ -43,6 +50,18 @@ def fale_hafez():
 
     #Live request to hafiz website
     response = requests.get(f'{base_url}/{section}/{ghazal}.htm')
+
+    
+    if response.status_code == 200:
+
+        logging.info(f'Ghazal response was successful with status_code: {response.status_code}')
+    else:
+        logging.warning(f'Unable to recieve Ghazal, status_code: {response.status_code}')
+        logging.warning(f'Section: {section} Ghazal: {ghazal}')
+
+        #Redirect user to homepage via temporary redirect 
+        return redirect("/", code=307)
+    
     data = response.text
 
     #Parsing the Html result
@@ -65,7 +84,8 @@ def fale_hafez():
         f_beit = beit.strip()
         if len(f_beit) > 0:
             fa_beit += f'<br>{f_beit}'  
-    
+
+    logging.info('Poem page served.')
     return render_template("poem.html", 
                             e_beit=en_beit, 
                             f_beit=fa_beit,
