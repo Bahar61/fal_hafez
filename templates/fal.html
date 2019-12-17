@@ -3,16 +3,19 @@
 {% block title %}Homepage{% endblock %}
 
 {% block content %}
-    <div id="main_page">
-        <form id="myBtn" method="get" action="/poem">
-        <button type="submit" class="btn btn-primary btn-lg">Ask Hafez</button>
+    <div id="main_page" class="container-sm">
+        <div class="row justify-content-center">
+            <h3 id="main_page_title">To try the guidance of Hafez hold a question in your mind and click on the button below to have your Fal:
+            </h3>
+        </div>
+        <form method="get" action="/poem" class="row justify-content-center">
+        <button id="myBtn" type="submit" class="btn btn-info btn-lg mx-auto">Ask Hafez</button>
     </div>
     <div class="card-footer bg-transparent border-light text-muted">
         <div class="row justify-content-center">
-            <div class="col-6">
+            <div>
                 Source: www.hafizonlove.com            
-            </div>
-            <div class="col-5 text-right">
+            <br>
                 Photo: Mario Cruz on Unsplash
             </div>
         </div>      

@@ -1,23 +1,28 @@
 body {
-    border: 2px solid white;
-    padding: 35px;
-    background-image: url(image.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-color: black;
+    background-image: url("image.jpg");
     color: white;
     font-size: 20px;
 }
 
 #bg-shade {
-    background-color: rgba(0,0,0,0.8);  
-}
-
-input {
-    width: 10rem;
-    border: 2px solid white;
-    font-size: 2rem;
+    background-color: rgba(0,0,0,0.8);
+    height: 100%;  
+    justify-content: center;
+    margin: 1rem;
 }
 
 footer {
     background-color: rgba(0,0,0,0.8);
 }
+
+#main_page_title {
+    justify-content: center;
+    text-align: center;
+    padding: 5%;
+}
+
+#myBtn {
+    margin-bottom: 25%; 
+}
+
