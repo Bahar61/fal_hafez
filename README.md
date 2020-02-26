@@ -11,6 +11,5 @@ I used Python and Flask framework. I send live requests and scrape hafizonlove w
  - Languages | Python,HTML, CSS
  - Frameworks & Libraries | Flask, Bootstrap, Jinja, Beautiful Soup
 
-![](https://drive.google.com/open?id=1grXHJxVWbwP9BqW40tsT0j2G5mjGpzb)
 Bahar
 [Linkedin](https://www.linkedin.com/in/bahar-asefi-19154218a)
